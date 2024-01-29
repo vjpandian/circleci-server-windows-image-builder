@@ -5,6 +5,7 @@ library:
   build_image: &build_image
     docker:
       - image: hashicorp/packer:1.4.5
+    resource_class: xlarge
     steps:
       - run:
           name: Determine which platform we use
@@ -53,7 +54,7 @@ library:
           command: mkdir -p /tmp/results /tmp/artifacts
       - run:
           name: Build images
-          no_output_timeout: 120m
+          no_output_timeout: 300m
           environment:
             # The AMI can take a very long time to be ready. These env
             # vars make packer wait 2 hours for this to happen before
