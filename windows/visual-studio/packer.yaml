@@ -37,7 +37,7 @@ builders:
     communicator: "winrm"
     launch_block_device_mappings:
       - device_name: "/dev/sda1"
-        volume_size: 160
+        volume_size: 200
         volume_type: "gp2"
         delete_on_termination: true
     winrm_username: '{{ user "windows_user" }}'
@@ -46,12 +46,18 @@ builders:
     winrm_timeout: "30m"
     tags:
       circle_build_url: '{{ user "circle_build_url" }}'
+      owner: 'vijay'
+      team: 'custeng'
       circle_job_name: '{{ user "circle_job_name" }}'
       circle_sha: '{{ user "circle_sha" }}'
       monorepo_content_sha: '{{ user "monorepo_content_sha" }}'
     run_tags:
+      owner: 'vijay'
+      team: 'custeng'
       circle_build_url: '{{ user "circle_build_url" }}'
     run_volume_tags:
+      owner: 'vijay'
+      team: 'custeng'
       circle_build_url: '{{ user "circle_build_url" }}'
 
   - type: googlecompute
