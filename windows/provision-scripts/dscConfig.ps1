@@ -15,7 +15,7 @@ Configuration CircleBuildHost {
         CircleCloudTools cloudTools { }
         CircleDevTools devTools { }
         CircleTDR tdr { }
-        CircleMicrosoftTools MicrosoftTools { }
+        #CircleMicrosoftTools MicrosoftTools { }
     }
 }
 
