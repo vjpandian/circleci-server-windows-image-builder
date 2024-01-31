@@ -1,11 +1,14 @@
-# We will continue using config version 2 for backward compatibility with server 2.x
-version: 2
 
-library:
-  build_image: &build_image
+version: 2.1
+
+executors:
+  packer-default:
     docker:
       - image: hashicorp/packer:1.4.5
     resource_class: xlarge
+
+commands:
+  build_image: &build_image
     steps:
       - run:
           name: Determine which platform we use
@@ -187,13 +190,17 @@ jobs:
 
             /usr/local/bin/run-gc
 
-  windows_visualstudio_gcp: *build_image
+  windows_visualstudio_gcp:
+    executor: packer-default
+    steps:
+      - build_image
 
-  windows_visualstudio_aws: *build_image
+  windows_visualstudio_aws:
+    executor: packer-default
+    steps:
+      - build_image
 
 workflows:
-  version: 2
-
   build_all_images:
     jobs:
       #- windows_visualstudio_gcp:
