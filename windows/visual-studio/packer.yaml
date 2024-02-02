@@ -37,7 +37,7 @@ builders:
     communicator: "winrm"
     launch_block_device_mappings:
       - device_name: "/dev/sda1"
-        volume_size: 200
+        volume_size: 120
         volume_type: "gp2"
         delete_on_termination: true
     winrm_username: '{{ user "windows_user" }}'
@@ -162,7 +162,7 @@ provisioners:
 
   - type: file
     source: "C:\\InstalledSoftware.md"
-    destination: "/tmp/artifacts/Vs2019-Server2019-Readme.md"
+    destination: "/tmp/artifacts/Vs2019-Server2022-Readme.md"
     direction: "download"
 
   - type: file
